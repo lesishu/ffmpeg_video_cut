@@ -12,7 +12,7 @@ python3 video_cut.py 01.mp4
 
 # 参数详解
 
--hide_banner	命令行执行时隐藏Banner，简化输出信息\
+-hide_banner  命令行执行时隐藏Banner，简化输出信息\
 -vf	颜色滤镜\
 hqdn3d	画质增强\
 eq=contrast=1.06	对比度增加到 1.06 倍\
@@ -43,8 +43,7 @@ drawtext=text='@test':x=168:y=1680:fontsize=32:fontcolor=white"	插入字幕\
 output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟秒.mp4
 
 # ffmpeg命令行
-这段Python代码，也可以直接使用ffmpeg命令行实现同样的功能。\
-命令行：
+这段Python代码，也可以直接使用ffmpeg命令行实现同样的功能，命令行：
 ```sh
 ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturation=1.06:brightness=0.01:contrast=1.01:gamma=1.01,crop=iw\*0.99:ih\*0.99:ow-iw:oh-ih,unsharp,trim=start_frame=6,hflip,hqdn3d,setpts=PTS/1.06,drawtext=text='@puppylove':x=w-mod(t\*30\\,w+tw):y=h-th-168:fontsize=36:fontcolor=white" -b:v 20000k -bufsize 20000k -maxrate 20000k -vcodec libx264 -acodec aac -shortest -force_key_frames "expr:gte(t,n_forced*0.99)" -r 60 -s 1080x1920 -preset slow -metadata title="Puppy Love" output_$(date +"%Y%m%d_%H%M%S").mp4
 ```
