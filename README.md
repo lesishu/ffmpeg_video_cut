@@ -24,18 +24,18 @@ crop=iw*0.99:ih*0.99:ow-iw:oh-ih	右下角 99% 的内容，裁剪掉了左上角
 unsharp	锐化，使用默认参数\
 trim=start_frame=6	掐头，从第6帧开始\
 drawtext=text='@test':x=168:y=1680:fontsize=32:fontcolor=white"	插入字幕\
-|-r 60	输出帧率\
-|-y	直接覆盖输出同名文件\
-|-b:v 20000k	输出视频码率\
-|-bufsize 20000k	输出Buffer缓存，和-b:v搭配用，让码率更稳定\
-|-maxrate 20000k	最大码率\
-|-force_key_frames "expr:gte(t,n_forced*0.99)"	每间隔0.99秒 强制关键帧\
-|-s 1080x1920	输出视频尺寸\
-|-preset slow	编码速度和质量\
+-r 60	输出帧率\
+-y	直接覆盖输出同名文件\
+-b:v 20000k	输出视频码率\
+-bufsize 20000k	输出Buffer缓存，和-b:v搭配用，让码率更稳定\
+-maxrate 20000k	最大码率\
+-force_key_frames "expr:gte(t,n_forced*0.99)"	每间隔0.99秒 强制关键帧\
+-s 1080x1920	输出视频尺寸\
+-preset slow	编码速度和质量\
 -vcodec libx264	视频使用Libx264编码\
 -acodec aac	音频使用AAC编码\
-|-an	输出不带音频\
+-an	输出不带音频【不需要声音时使用这个参数】\
 -metadata title="Puppy Love"	设置视频文件头信息：Title\
 -shortest	音视频适配，根据短的截断\
-|-filter:v "setpts=1.03*PTS"	变速\
-|output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟秒.mp4
+-filter:v "setpts=1.03*PTS"	变速\
+output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟秒.mp4
