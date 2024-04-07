@@ -3,7 +3,9 @@
 
 # 使用方法
 命令语句：\
-```python3 video_cut.py 视频文件名```
+```sh
+python3 video_cut.py 视频文件名
+```
 
 命令行示例：\
 ```python3 video_cut.py 01.mp4```
