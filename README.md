@@ -29,7 +29,7 @@ drawtext=text='@test':x=168:y=1680:fontsize=32:fontcolor=white"	插入字幕\
 -b:v 20000k	输出视频码率\
 -bufsize 20000k	输出Buffer缓存，和-b:v搭配用，让码率更稳定\
 -maxrate 20000k	最大码率\
--force_key_frames "expr:gte(t,n_forced*0.99)"	每间隔0.99秒 强制关键帧\
+-force_key_frames "expr:gte(t,n_forced\*0.99)"	每间隔0.99秒 强制关键帧\
 -s 1080x1920	输出视频尺寸\
 -preset slow	编码速度和质量\
 -vcodec libx264	视频使用Libx264编码\
@@ -39,3 +39,12 @@ drawtext=text='@test':x=168:y=1680:fontsize=32:fontcolor=white"	插入字幕\
 -shortest	音视频适配，根据短的截断\
 -filter:v "setpts=1.03*PTS"	变速\
 output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟秒.mp4
+
+# ffmpeg命令行
+这段Python代码，也可以直接使用ffmpeg命令行实现同样的功能。\
+命令行：\
+ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturation=1.06:brightness=0.01:contrast=1.01:gamma=1.01,crop=iw\*0.99:ih\*0.99:ow-iw:oh-ih,unsharp,trim=start_frame=6,hflip,hqdn3d,setpts=PTS/1.06,drawtext=text='@puppylove':x=w-mod(t\*30\\,w+tw):y=h-th-168:fontsize=36:fontcolor=white" -b:v 20000k -bufsize 20000k -maxrate 20000k -vcodec libx264 -acodec aac -shortest -force_key_frames "expr:gte(t,n_forced*0.99)" -r 60 -s 1080x1920 -preset slow -metadata title="Puppy Love" output_$(date +"%Y%m%d_%H%M%S").mp4
+
+# 声明
+免费使用于任何用途。\
+联系：lesishu@qq.com
