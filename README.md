@@ -1,4 +1,4 @@
-# video_cut 视频自动剪辑工具
+# single_video_cut 视频剪辑
 适用于抖音、Tiktok等，1080x1920（可自行修改参数适配不同规格的视频）。
 
 # 使用方法
@@ -37,7 +37,7 @@ drawtext=text='@test':x=168:y=1680:fontsize=32:fontcolor=white"	插入字幕\
 -vcodec libx264	视频使用Libx264编码\
 -acodec aac	音频使用AAC编码\
 -an	输出不带音频【不需要声音时使用这个参数】\
--metadata title="Puppy Love"	设置视频文件头信息：Title\
+-metadata title="My Title"	设置视频文件头信息：Title\
 -shortest	音视频适配，根据短的截断\
 -filter:v "setpts=1.03*PTS"	变速\
 output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟秒.mp4
