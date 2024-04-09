@@ -15,7 +15,7 @@ python3 video_cut.py 01.mp4
 # 参数详解
 
 -hide_banner  命令行执行时隐藏Banner，简化输出信息\
--vf	颜色滤镜\
+-vf	视频滤镜\
 hqdn3d	画质增强\
 eq=contrast=1.06	对比度增加到 1.06 倍\
 brightness=0.03	亮度提升0.03\
