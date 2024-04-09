@@ -54,5 +54,5 @@ ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturatio
 运行batch_video_cut.py，会批量剪辑input文件夹中所有视频，保存在output文件夹。
 
 # 声明
-免费使用于任何用途。\
+个人学习总结，可应用于任何用途。\
 联系：lesishu@qq.com
