@@ -1,9 +1,11 @@
-# single_video_cut 视频剪辑
+# single_video_cut.py 单视频剪辑
 适用于抖音、Tiktok等，1080x1920（可自行修改参数适配不同规格的视频）。
 
 # 使用方法
 命令语句：\
-```python3 video_cut.py 视频文件名```
+```sh
+python3 video_cut.py 视频文件名
+```
 
 命令行示例：
 ```sh
@@ -45,8 +47,11 @@ output_$(date +"%Y%m%d_%H%M%S").mp4	输出文件名：output_年月日_时分钟
 # ffmpeg命令行
 这段Python代码，也可以直接使用ffmpeg命令行实现同样的功能，命令行：
 ```sh
-ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturation=1.06:brightness=0.01:contrast=1.01:gamma=1.01,crop=iw\*0.99:ih\*0.99:ow-iw:oh-ih,unsharp,trim=start_frame=6,hflip,hqdn3d,setpts=PTS/1.06,drawtext=text='@puppylove':x=w-mod(t\*30\\,w+tw):y=h-th-168:fontsize=36:fontcolor=white" -b:v 20000k -bufsize 20000k -maxrate 20000k -vcodec libx264 -acodec aac -shortest -force_key_frames "expr:gte(t,n_forced*0.99)" -r 60 -s 1080x1920 -preset slow -metadata title="Puppy Love" output_$(date +"%Y%m%d_%H%M%S").mp4
+ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturation=1.06:brightness=0.01:contrast=1.01:gamma=1.01,crop=iw\*0.99:ih\*0.99:ow-iw:oh-ih,unsharp,trim=start_frame=6,hflip,hqdn3d,setpts=PTS/1.06,drawtext=text='@test':x=w-mod(t\*30\\,w+tw):y=h-th-168:fontsize=36:fontcolor=white" -b:v 20000k -bufsize 20000k -maxrate 20000k -vcodec libx264 -acodec aac -shortest -force_key_frames "expr:gte(t,n_forced*0.99)" -r 60 -s 1080x1920 -preset slow -metadata title="My Title" output_$(date +"%Y%m%d_%H%M%S").mp4
 ```
+# batch_video_cut.py 多视频剪辑
+在batch_video_cut.py所在位置创建文件夹input，将需要剪辑的视频放到input文件夹中。\
+运行batch_video_cut.py，会批量剪辑input文件夹中所有视频，保存在output文件夹。
 
 # 声明
 免费使用于任何用途。\
