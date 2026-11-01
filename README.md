@@ -56,3 +56,7 @@ ffmpeg -hide_banner -y -i 08.mp4 -vf "eq=contrast=1.06:brightness=0.03:saturatio
 # 声明
 个人学习总结，可应用于任何用途。\
 联系：lesishu@qq.com
+
+## 配套教程
+
+[FFmpeg + Python 批量剪辑视频教程](https://lesishu.online/archives/ffmpeg-python-cut-video)提供本项目相关的命令行与 Python 使用说明，可结合本仓库脚本阅读。运行前请按实际文件名、FFmpeg 版本和输入素材核对参数，并先用小样测试。
